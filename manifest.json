@@ -1,0 +1,570 @@
+[
+    {
+        "name": "PSGet",
+        "alias": "psget",
+        "urls": [
+            "https://learn.microsoft.com/en-us/powershell/module/powershellget/?view=powershellget-3.x"
+        ],
+        "package": {
+            "manager": "custom",
+            "id": "PowerShellGet"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": true
+    },
+    {
+        "name": "PSResourceGet",
+        "alias": "psrget",
+        "urls": [
+            "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.psresourceget/?view=powershellget-3.x"
+        ],
+        "package": {
+            "manager": "custom",
+            "id": "Microsoft.PowerShell.PSResourceGet"
+        },
+        "dependencies": ["psget"],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": true
+    },
+    {
+        "name": "Winget",
+        "alias": "winget",
+        "urls": [
+            "https://github.com/microsoft/winget-cli"
+        ],
+        "package": {
+            "manager": "custom",
+            "id": "Winget"
+        },
+        "dependencies": [
+            "psrget"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": true
+    },
+    {
+        "name": "Winget Client",
+        "alias": "winget-client",
+        "urls": [
+            "https://github.com/microsoft/winget-cli"
+        ],
+        "package": {
+            "manager": "psrget",
+            "id": "Microsoft.WinGet.Client"
+        },
+        "dependencies": [
+            "winget"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": true
+    },
+    {
+        "name": "Git",
+        "alias": "git",
+        "urls": [
+            "https://git-scm.com/"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Git.Git"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows",
+            "linux"
+        ],
+        "prerequisite": true
+    },
+    {
+        "name": "Scoop",
+        "alias": "scoop",
+        "urls": [
+            "https://github.com/ScoopInstaller/Scoop",
+            "https://scoop.sh/"
+        ],
+        "package": {
+            "manager": "custom",
+            "id": "Scoop"
+        },
+        "dependencies": [
+            "git"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": true
+    },
+    {
+        "name": "WSL",
+        "alias": "wsl",
+        "urls": [
+            "https://learn.microsoft.com/en-us/windows/wsl/install"
+        ],
+        "package": {
+            "manager": "custom",
+            "id": "WSL"
+        },
+        "dependencies": [
+            "winget"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Docker",
+        "alias": "docker",
+        "urls": [
+            "https://www.docker.com/products/docker-desktop/",
+            "https://docs.docker.com/desktop/"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Docker.DockerDesktop"
+        },
+        "dependencies": [
+            "wsl"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Nerd Fonts FiraCode",
+        "alias": "fira-code",
+        "urls": [
+            "https://www.nerdfonts.com/",
+            "https://github.com/tonsky/FiraCode"
+        ],
+        "package": {
+            "manager": "scoop",
+            "id": "FiraCode-NF"
+        },
+        "dependencies": [
+            "terminal"
+        ],
+        "targets": [
+            "windows",
+            "linux"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "PowerShell Core",
+        "alias": "powershell",
+        "urls": [
+            "https://github.com/PowerShell/PowerShell",
+            "https://learn.microsoft.com/en-us/powershell/"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Microsoft.PowerShell"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "FZF",
+        "alias": "fzf",
+        "urls": [
+            "https://github.com/junegunn/fzf"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "junegunn.fzf"
+        },
+        "dependencies": [
+            "powershell"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "JQuery",
+        "alias": "jq",
+        "urls": [
+            "https://github.com/jqlang/jq",
+            "https://jqlang.github.io/jq/"
+        ],
+        "package": {
+            "manager": "scoop",
+            "id": "jq"
+        },
+        "dependencies": [
+            "powershell"
+        ],
+        "targets": [
+            "windows",
+            "linux"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "PS ReadLine",
+        "alias": "psreadline",
+        "urls": [
+            "https://github.com/PowerShell/PSReadLine",
+            "https://learn.microsoft.com/en-us/powershell/module/psreadline/?view=powershell-7.4"
+        ],
+        "package": {
+            "manager": "psrget",
+            "id": "PSReadLine"
+        },
+        "dependencies": [
+            "powershell"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "PS FZF",
+        "alias": "psfzf",
+        "urls": [
+            "https://github.com/kelleyma49/PSFzf"
+        ],
+        "package": {
+            "manager": "psrget",
+            "id": "PSFzf"
+        },
+        "dependencies": [
+            "powershell",
+            "fzf"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "WinSCP",
+        "alias": "winscp",
+        "urls": [
+            "https://winscp.net/eng/download.php"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "WinSCP.WinSCP"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Oh My Posh",
+        "alias": "oh-my-posh",
+        "urls": [
+            "https://github.com/jandedobbeleer/oh-my-posh",
+            "https://ohmyposh.dev/"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "JanDeDobbeleer.OhMyPosh"
+        },
+        "dependencies": [
+            "powershell",
+            "terminal"
+        ],
+        "targets": [
+            "windows",
+            "linux"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Fastfetch",
+        "alias": "fastfetch",
+        "urls": [
+            "https://github.com/fastfetch-cli/fastfetch"
+        ],
+        "package": {
+            "manager": "scoop",
+            "id": "fastfetch"
+        },
+        "dependencies": [
+            "powershell"
+        ],
+        "targets": [
+            "windows",
+            "linux"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "LSDelux",
+        "alias": "lsd",
+        "urls": [
+            "https://github.com/lsd-rs/lsd"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "lsd-rs.lsd"
+        },
+        "dependencies": [
+            "powershell"
+        ],
+        "targets": [
+            "windows",
+            "linux"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Completion Predictor",
+        "alias": "completion-predictor",
+        "urls": [
+            "https://github.com/PowerShell/CompletionPredictor"
+        ],
+        "package": {
+            "manager": "psrget",
+            "id": "CompletionPredictor"
+        },
+        "dependencies": [
+            "powershell",
+            "psreadline"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Posh Git",
+        "alias": "posh-git",
+        "urls": [
+            "https://github.com/dahlbyk/posh-git",
+            "https://ohmyposh.dev/docs/segments/git"
+        ],
+        "package": {
+            "manager": "psrget",
+            "id": "posh-git"
+        },
+        "dependencies": [
+            "powershell",
+            "oh-my-posh"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Posh SSH",
+        "alias": "posh-ssh",
+        "urls": [
+            "https://github.com/darkoperator/Posh-SSH"
+        ],
+        "package": {
+            "manager": "psrget",
+            "id": "posh-ssh"
+        },
+        "dependencies": [
+            "powershell"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Windows Terminal",
+        "alias": "terminal",
+        "urls": [
+            "https://github.com/microsoft/terminal",
+            "https://apps.microsoft.com/detail/windows-terminal/9N0DX20HK701?hl=en-US&gl=US"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Microsoft.WindowsTerminal"
+        },
+        "dependencies": [
+            "powershell"
+        ],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Visual Studio Code",
+        "alias": "vscode",
+        "urls": [
+            "https://code.visualstudio.com/",
+            "https://github.com/microsoft/vscode"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Microsoft.VisualStudioCode"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Windows PowerToys",
+        "alias": "power-toys",
+        "urls": [
+            "https://github.com/microsoft/PowerToys",
+            "https://learn.microsoft.com/en-us/windows/powertoys/"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Microsoft.PowerToys"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Auto Dark Mode",
+        "alias": "auto-dark-mode",
+        "urls": [
+            "https://github.com/AutoDarkMode/Windows-Auto-Night-Mode",
+            "https://apps.microsoft.com/detail/auto-dark-mode/XP8JK4HZBVF435?hl=en-US&gl=US"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Armin2208.WindowsAutoNightMode"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "OpenVPN",
+        "alias": "openvpn",
+        "urls": [
+            "https://openvpn.net/client/client-connect-vpn-for-windows/"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "OpenVPNTechnologies.OpenVPN"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Chrome",
+        "alias": "chrome",
+        "urls": [
+            "https://www.google.com/chrome/"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Google.Chrome"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Adobe Reader",
+        "alias": "adobe-reader",
+        "urls": [
+            "https://www.adobe.com/no/acrobat/pdf-reader.html"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Adobe.Acrobat.Reader.64-bit"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "UniGetUI",
+        "alias": "uniget",
+        "urls": [
+            "https://github.com/marticliment/UniGetUI"
+        ],
+        "package": {
+            "manager": "scoop",
+            "id": "unigetui"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Spotify",
+        "alias": "spotify",
+        "urls": [
+            "https://www.spotify.com/us/download/windows/"
+        ],
+        "package": {
+            "manager": "scoop",
+            "id": "spotify"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Logitech Unifying Software",
+        "alias": "unifying",
+        "urls": [
+            "https://www.logitech.com/en-us/resource-center/what-is-unifying.html"
+        ],
+        "package": {
+            "manager": "winget",
+            "id": "Logitech.UnifyingSoftware"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    },
+    {
+        "name": "Bulk Rename Utility",
+        "alias": "rename-utility",
+        "urls": [
+            "https://www.bulkrenameutility.co.uk/"
+        ],
+        "package": {
+            "manager": "scoop",
+            "id": "bulk-rename-utility"
+        },
+        "dependencies": [],
+        "targets": [
+            "windows"
+        ],
+        "prerequisite": false
+    }
+]
