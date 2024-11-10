@@ -1,4 +1,3 @@
-# Variables to configure at the beginning of the script
 $githubUsername = "norsemangrey"
 $repositoryName = "windows-software-deployer"
 $branchName = "main"
