@@ -57,7 +57,7 @@ function Test-WslDistribution {
 
         $distributions = wsl --list --quiet 2>$null
 
-        if ($distributions) {
+        if ($distributions.Replace("`0",'') -match "Ubuntu") {
 
             return $True
 
@@ -311,11 +311,11 @@ function Invoke-WslFunctions {
 
     if ( -not ( Test-Wsl ) ) {
 
-        Install-Wsl
+        #Install-Wsl
 
     } else  {
 
-        Update-Wsl
+        #Update-Wsl
 
     }
 
@@ -325,3 +325,5 @@ function Invoke-WslFunctions {
 
 
 $localDebug = $global:debug
+
+Test-Wsl
