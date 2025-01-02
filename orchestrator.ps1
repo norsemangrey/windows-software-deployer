@@ -1432,6 +1432,8 @@ function Build-ScriptShortcut {
 
 }
 
+#endregion
+
 
 function ConvertTo-Class {
     param (
@@ -1494,7 +1496,6 @@ function ConvertTo-Class {
 
 }
 
-#endregion
 
 
 Test-PowerShellHost
